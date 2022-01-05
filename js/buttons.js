@@ -11,10 +11,13 @@ let active = {
 botaospin.addEventListener('click', function() {
     buttonsclicked = true;
     if (buttonsclicked) {
-        intro.classList.add('fade');
+        //intro.classList.add('fade');
+        intro.style.display='none';
     }
     if (!active.spin) {
-        startSlides();
+        spinCubo();
+        
+        //startSlides();
     }
     active.spin = true;
     active.handle = false;
@@ -22,6 +25,8 @@ botaospin.addEventListener('click', function() {
         botaospin.classList.add('btn-clicked');
         botaohandle.classList.remove('btn-clicked');
         active.handle = false;
+        console.log(rotateY);
+        
     }
 
     console.log("spin: " + active.spin);
@@ -40,8 +45,10 @@ botaohandle.addEventListener('click', function() {
     if (active.handle) {
         botaohandle.classList.add('btn-clicked');
         botaospin.classList.remove('btn-clicked');
-        stopSlides();
+        //stopSlides();
+        stopSpinning();
         showText();
+        console.log(rotateY);
     }
     console.log("spin: " + active.spin);
     console.log("handle: " + active.handle);

@@ -49,35 +49,60 @@
     width: 100%;
     height: 100%;
     /* background: #6454F0; */
-    background: #6eb7fc;
+    /*background: #6eb7fc;*/
+    /* background: linear-gradient(180deg, #6EE2F5 -5.53%, #6454F0 75.36%); */
     transition: background-color 0.3s;
 }
 
 .cubo.active * {
     /* background: #6EE2F5; */
-    background: #96cbf7;
+    /* background: #96cbf7; */
+    background: linear-gradient(180deg, #96cbf7 0, #96cbf7 130%);
+
 }
 
 .frente {
+    background: linear-gradient(180deg, #96cbf7 0, #5090c5 130%);
     transform: rotateX(0) translateZ(50px);
 }
 
 .tras {
+    background: linear-gradient(180deg, #96cbf7 0, #5090c5 130%);
     transform: rotateX(180deg) translateZ(50px);
 }
 
 .direita {
+    background: linear-gradient(180deg, #96cbf7 0, #5090c5 130%);
     transform: rotateY(90deg) translateZ(50px);
 }
 
 .esquerda {
+    background: linear-gradient(180deg, #96cbf7 0, #5090c5 130%);
     transform: rotateY(-90deg) translateZ(50px);
 }
 
 .cima {
     transform: rotateX(90deg) translateZ(50px);
+    background: linear-gradient(180deg, #96cbf7 0, #96cbf7 130%);
 }
 
 .baixo {
     transform: rotateX(-90deg) translateZ(50px);
+    /* background: linear-gradient(180deg, #5090c5 0, #5090c5 130%); */
+    background: radial-gradient(#4376b1, #5090c5);
+
+}
+
+.cubo svg{
+    width:30%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    user-select: none;
+    fill:#584ad4;
+}
+
+#svg-estrela{
+    width:35%;
 }

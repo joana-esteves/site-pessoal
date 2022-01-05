@@ -8,6 +8,10 @@ body {
     margin: 0 15%;
 }
 
+a{
+    text-decoration: none;
+}
+
 .linha {
     border-bottom: 2px solid black;
     display: block;
@@ -70,7 +74,8 @@ p>span {
     font-weight: 500;
 }
 
-.trabalhos a {
+.trabalhos a,
+.redes-sociais a {
     color: inherit;
 }
 
@@ -92,7 +97,8 @@ p>span {
     align-items: center;
 }
 
-.trabalhos-unit:last-child {
+.trabalhos>a:last-child>.trabalhos-unit,
+.redes-sociais>a:last-child>.trabalhos-unit{
     border-bottom: 2px solid black;
 }
 
@@ -121,6 +127,10 @@ p>span {
 
 .trabalhos-unit:hover>svg {
     opacity: 1;
+}
+
+#clickhere{
+    text-decoration: underline;
 }
 
 .buttons {
@@ -156,7 +166,7 @@ button:active {
 }
 
 .btn-clicked {
-    border: 3px solid #4b41a5;
+    border: 3px solid #6eb7fc;
     background: #6eb7fc
 }
 
@@ -241,20 +251,17 @@ button span {
 .popup{
     position:absolute;
     left:50%;
-    top:0;
+    top:30px;
     transform:translateX(-50%);
-    min-width: 100px;
     padding:0 10px;
     height: 35px;
     background: none;
-    /* border: 3px solid #6eb7fc96; */
-    box-sizing: border-box;
-    border-radius: 50px;
     cursor: pointer;
     text-align: center;
     opacity:0;
     transition: opacity 0.25s ease-in-out;
     user-select: none;
+    z-index: 10;
 }
 
 .popup>span{
@@ -355,6 +362,11 @@ button span {
         min-height: unset;
         transform: unset;
     }
+
+    .popup{
+        top:-20px;
+    }
+
     .controlo-cubo {
         height: 100%;
     }

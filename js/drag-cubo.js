@@ -31,7 +31,7 @@ let rotateXesquerda, rotateYesquerda;
 let rotateXcima, rotateZcima;
 let rotateXbaixo, rotateZbaixo;
 
-function getSlideIndex(){
+function getSlideIndex() {
     if ((rotateY >= -45 && rotateY <= 44) || (rotateY >= -360 && rotateY <= -316) || (rotateY >= 316 && rotateY <= 360)) { //frente
         slideIndex = 0;
     } else if ((rotateY >= -135 && rotateY <= -46) || (rotateY >= 226 && rotateY <= 315)) { //direita
@@ -58,8 +58,6 @@ function mouseDown(e) {
         startX = touch.pageX;
         startY = touch.pageY;
     }
-
-    console.log(startX);
 }
 
 function mouseLeave() {
@@ -96,12 +94,37 @@ function mouseUp() {
     //     slideIndex = 3;
     // }
 
-    slideIndex=getSlideIndex();
+    slideIndex = getSlideIndex();
 
     console.log(slideIndex)
     showText();
 }
 
+function rotateCubo() {
+
+    let rotateXc = 90 + rotateX;
+    let rotateXcinv = rotateXc - 180;
+    let rotateZc = rotateY * -1;
+    let rotateZcinv = rotateY - 180;
+    //let rotateXinv = rotateX + 180;
+    //let rotateYfinv = rotateY * -1;
+    let rotateYd = rotateY + 90;
+    let rotateYdinv = rotateYd - 180;
+    let rotateYinv = rotateY - 180;
+
+    rotateInicialinv = rotateInicial - 180;
+
+    //console.log("rotateX: " + rotateX);
+    //console.log("rotateY: " + rotateY);
+
+    frente.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateZ(50px)';
+    // tras.style.transform = 'rotateX(' + rotateXinv + 'deg) rotateY(' + rotateYfinv + 'deg) translateZ(50px)';
+    tras.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateYinv + 'deg) translateZ(50px)';
+    direita.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateYd + 'deg) translateZ(50px)';
+    esquerda.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateYdinv + 'deg) translateZ(50px)';
+    cima.style.transform = 'rotateX(' + rotateXc + 'deg) rotateZ(' + rotateZc + 'deg) translateZ(50px)';
+    baixo.style.transform = 'rotateX(' + rotateXcinv + 'deg) rotateZ(' + rotateZcinv + 'deg) translateZ(50px)';
+}
 
 
 function mouseMove(e) {
@@ -109,19 +132,18 @@ function mouseMove(e) {
     if (!active.handle) return;
     e.preventDefault();
 
-    var popupTitulo="";
+    var popupTitulo = "";
 
-    if(getSlideIndex()==0){
-        popupTitulo="About";
-    }else if(getSlideIndex()==1){
-        popupTitulo="Interests";
-    }else if(getSlideIndex()==2){
-        popupTitulo="Work";
-    }else{
-        popupTitulo="Links";
+    if (getSlideIndex() == 0) {
+        popupTitulo = "About";
+    } else if (getSlideIndex() == 1) {
+        popupTitulo = "Interests";
+    } else if (getSlideIndex() == 2) {
+        popupTitulo = "Projects";
+    } else {
+        popupTitulo = "Links";
     }
-    popupText.innerHTML=popupTitulo;
-    
+    popupText.innerHTML = popupTitulo;
 
     var x, y;
 
@@ -153,35 +175,20 @@ function mouseMove(e) {
         rotateX = rotateXinicial + distY * -1;
         rotateY = rotateYinicial + distX * 1;
     }
+
     if (rotateY > 360) {
         rotateY = rotateY - 360;
     } else if (rotateY < -360) {
         rotateY = rotateY + 360;
     }
 
-    let rotateXinv = rotateX - 180;
-
-    let rotateXc = 90 + rotateX;
-    let rotateXcinv = rotateXc - 180;
-    let rotateZc = rotateY * -1;
-    let rotateZcinv = rotateY - 180;
-    let rotateYfinv = rotateY * -1;
-    let rotateYd = rotateY + 90;
-    let rotateYdinv = rotateYd - 180;
-
-    rotateInicialinv = rotateInicial - 180;
-
-    //console.log("rotateX: " + rotateX);
-    console.log("rotateY: " + rotateY);
-
-    frente.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateZ(50px)';
-    tras.style.transform = 'rotateX(' + rotateXinv + 'deg) rotateY(' + rotateYfinv + 'deg) translateZ(50px)';
-    direita.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateYd + 'deg) translateZ(50px)';
-    esquerda.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateYdinv + 'deg) translateZ(50px)';
-    cima.style.transform = 'rotateX(' + rotateXc + 'deg) rotateZ(' + rotateZc + 'deg) translateZ(50px)';
-    baixo.style.transform = 'rotateX(' + rotateXcinv + 'deg) rotateZ(' + rotateZcinv + 'deg) translateZ(50px)';
+    rotateCubo();
 
 }
+
+
+
+
 
 controlo.addEventListener('mouseover', () => {
         isDown = false;
@@ -218,4 +225,3 @@ controlo.addEventListener('mousemove', (e) => {
 controlo.addEventListener('touchmove', (e) => {
     mouseMove(e);
 }, false)
-
