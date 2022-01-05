@@ -81,44 +81,25 @@ function mouseUp() {
     rotateYinicial = rotateY;
     console.log("mouse up");
 
-    //definir que face está para a frente
-    //e o texto que lhe corresponde
-
-    // if ((rotateY >= -45 && rotateY <= 44) || (rotateY >= -360 && rotateY <= -316) || (rotateY >= 316 && rotateY <= 360)) { //frente
-    //     slideIndex = 0;
-    // } else if ((rotateY >= -135 && rotateY <= -46) || (rotateY >= 226 && rotateY <= 315)) { //direita
-    //     slideIndex = 1;
-    // } else if ((rotateY >= -225 && rotateY <= -136) || (rotateY >= 136 && rotateY <= 225)) { //tras
-    //     slideIndex = 2;
-    // } else if ((rotateY >= -315 && rotateY <= -226) || (rotateY >= 45 && rotateY <= 135)) { //esquerda
-    //     slideIndex = 3;
-    // }
-
     slideIndex = getSlideIndex();
-
-    console.log(slideIndex)
     showText();
 }
 
 function rotateCubo() {
 
+    //cálculo das variáveis que fazem rodar o cubo consoante o rotateX e o rotateY
     let rotateXc = 90 + rotateX;
     let rotateXcinv = rotateXc - 180;
     let rotateZc = rotateY * -1;
     let rotateZcinv = rotateY - 180;
-    //let rotateXinv = rotateX + 180;
-    //let rotateYfinv = rotateY * -1;
     let rotateYd = rotateY + 90;
     let rotateYdinv = rotateYd - 180;
     let rotateYinv = rotateY - 180;
-
     rotateInicialinv = rotateInicial - 180;
 
-    //console.log("rotateX: " + rotateX);
-    //console.log("rotateY: " + rotateY);
 
+    //aplicar as variáveis às seis faces
     frente.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateZ(50px)';
-    // tras.style.transform = 'rotateX(' + rotateXinv + 'deg) rotateY(' + rotateYfinv + 'deg) translateZ(50px)';
     tras.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateYinv + 'deg) translateZ(50px)';
     direita.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateYd + 'deg) translateZ(50px)';
     esquerda.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateYdinv + 'deg) translateZ(50px)';
@@ -183,42 +164,43 @@ function mouseMove(e) {
     }
 
     rotateCubo();
-
 }
 
 
 
-
-
 controlo.addEventListener('mouseover', () => {
-        isDown = false;
-        if (!active.handle) return;
-        controlo.setAttribute("style", "cursor:grab;");
-    }, false)
-    ////
-controlo.addEventListener('mousedown', (e) => {
+    isDown = false;
+    if (!active.handle) return;
+    controlo.setAttribute("style", "cursor:grab;");
+}, false)
+
+////
+controlo.addEventListener('mousedown', (e) => { 
     touching = false;
     console.log('clique')
     mouseDown(e);
 }, false)
 controlo.addEventListener('touchstart', (e) => {
-        touching = true;
-        console.log('touch')
-        mouseDown(e);
-    }, false)
-    ////
-controlo.addEventListener('mouseleave', () => {
-        mouseLeave();
-    }, false)
-    ////
+    touching = true;
+    console.log('touch')
+    mouseDown(e);
+}, false)
+
+////
+controlo.addEventListener('mouseleave', () => { 
+    mouseLeave();
+}, false)
+
+////
 controlo.addEventListener('mouseup', () => {
     mouseUp();
 }, false)
 controlo.addEventListener('touchend', () => {
-        touching = false;
-        mouseUp();
-    }, false)
-    ////
+    touching = false;
+    mouseUp();
+}, false)
+
+////
 controlo.addEventListener('mousemove', (e) => {
     mouseMove(e);
 }, false)

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
 body {
     background: linear-gradient(124deg, #6EE2F5 -5.53%, #6454F0 75.36%);
     position: relative;
@@ -17,9 +18,9 @@ a{
     display: block;
 }
 
-hr {
-    border: 1px solid black;
-}
+
+
+/* TIPOGRAFIA */
 
 h1 {
     font-family: Palanquin Dark, sans-serif;
@@ -48,11 +49,6 @@ h3 {
     letter-spacing: 0.05em;
 }
 
-
-/* #hello{
-    text-transform: uppercase;
-} */
-
 p {
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
@@ -78,6 +74,9 @@ p>span {
 .redes-sociais a {
     color: inherit;
 }
+
+
+/* SLIDE PROJETOS */
 
 .text {
     display: none;
@@ -132,6 +131,8 @@ p>span {
 #clickhere{
     text-decoration: underline;
 }
+
+/* BOTÕES */
 
 .buttons {
     display: inline-block;
@@ -193,6 +194,8 @@ button span {
 .handle {
     margin-bottom: 100px;
 }
+
+/* SECÇÃO DO CUBO */
 
 .sombra {
     position: absolute;
@@ -277,6 +280,8 @@ button span {
     line-height: 29px;
 }
 
+/* SECÇÃO TEXTO SLIDES */
+
 .main-container-text {
     position: absolute;
     top: 50%;
@@ -287,6 +292,8 @@ button span {
     user-select: none;
     transition: opacity 0.2s ease-in-out;
 }
+
+/* OUTROS */
 
 .fade {
     opacity: 0;
@@ -304,6 +311,8 @@ button span {
     width:100%;
     height:100%;
 }
+
+/* RESPONSIVIDADE */
 
 @media only screen and (max-width:1205px) {
     h2 {

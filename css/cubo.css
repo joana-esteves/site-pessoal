@@ -1,17 +1,3 @@
-:root {
-    --rotXf: 0;
-    --rotYf: 0;
-    --rotXb: 180;
-    --rotYb: 0;
-    --rotXf: 0;
-    --rotXf: 0;
-    --rotXf: 0;
-    --rotXf: 0;
-    --rotXf: 0;
-    --rotXf: 0;
-    --rotXf: 0;
-}
-
 .container {
     width: 100px;
     height: 100px;
@@ -30,33 +16,14 @@
     position: relative;
 }
 
-
-/*.animation-spin {
-    animation: spin infinite linear 10s;
-}
-
-@keyframes spin {
-    from {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-    to {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
-}*/
-
 .cubo>* {
     position: absolute;
     width: 100%;
     height: 100%;
-    /* background: #6454F0; */
-    /*background: #6eb7fc;*/
-    /* background: linear-gradient(180deg, #6EE2F5 -5.53%, #6454F0 75.36%); */
     transition: background-color 0.3s;
 }
 
 .cubo.active * {
-    /* background: #6EE2F5; */
-    /* background: #96cbf7; */
     background: linear-gradient(180deg, #96cbf7 0, #96cbf7 130%);
 
 }
@@ -88,7 +55,6 @@
 
 .baixo {
     transform: rotateX(-90deg) translateZ(50px);
-    /* background: linear-gradient(180deg, #5090c5 0, #5090c5 130%); */
     background: radial-gradient(#4376b1, #5090c5);
 
 }

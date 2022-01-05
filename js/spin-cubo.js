@@ -13,36 +13,22 @@ function showText() {
 }
 
 function spinCubo() {
-    
+    //roda o cubo para a esquerda
     rotateY--;
-
-    // if (rotateX >= 40 || rotateX <= -40) {
-    //     inc = inc * -1;
-    // }
-    // rotateX = rotateX + inc;
-    // console.log(rotateX)
-
-    console.log(inc)
 
     if (rotateY > 360) {
         rotateY = rotateY - 360;
     } else if (rotateY < -360) {
         rotateY = rotateY + 360;
     }
-    //cubo.style.transform = "rotateY(" + rotateY + "deg)";
     rotateCubo();
     rotateYinicial = rotateY;
     getSlideIndex();
-    showText();
+    showText(); //mostra o texto consoante a face que está para a frente (calculada pelo getSlideIndex())
     timeoutspin = setTimeout(spinCubo, 20);
-    // console.log('função spinCubo() está a ser chamada');
-    //console.log(rotateY);
-    
-    console.log(getSlideIndex());
 }
 
 function stopSpinning() {
     rotateYinicial = rotateY;
     clearTimeout(timeoutspin);
-    //cubo.style.removeProperty("transform");
 }
