@@ -1,0 +1,83 @@
+:root {
+    --rotXf: 0;
+    --rotYf: 0;
+    --rotXb: 180;
+    --rotYb: 0;
+    --rotXf: 0;
+    --rotXf: 0;
+    --rotXf: 0;
+    --rotXf: 0;
+    --rotXf: 0;
+    --rotXf: 0;
+    --rotXf: 0;
+}
+
+.container {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+}
+
+.cubo {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+
+/*.animation-spin {
+    animation: spin infinite linear 10s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}*/
+
+.cubo>* {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background: #6454F0; */
+    background: #6eb7fc;
+    transition: background-color 0.3s;
+}
+
+.cubo.active * {
+    /* background: #6EE2F5; */
+    background: #96cbf7;
+}
+
+.frente {
+    transform: rotateX(0) translateZ(50px);
+}
+
+.tras {
+    transform: rotateX(180deg) translateZ(50px);
+}
+
+.direita {
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.esquerda {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.cima {
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.baixo {
+    transform: rotateX(-90deg) translateZ(50px);
+}
